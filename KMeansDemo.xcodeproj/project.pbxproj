@@ -11,7 +11,10 @@
 		DDDCBF502B487A3E002FDDC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF4F2B487A3E002FDDC5 /* ContentView.swift */; };
 		DDDCBF522B487A3F002FDDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDCBF512B487A3F002FDDC5 /* Assets.xcassets */; };
 		DDDCBF552B487A3F002FDDC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDCBF542B487A3F002FDDC5 /* Preview Assets.xcassets */; };
-		DDDCBF5F2B487BF5002FDDC5 /* OriginalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF5E2B487BF5002FDDC5 /* OriginalImageView.swift */; };
+		DDDCBF5F2B487BF5002FDDC5 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF5E2B487BF5002FDDC5 /* PreviewView.swift */; };
+		DDDCBF612B48834E002FDDC5 /* InputImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF602B48834E002FDDC5 /* InputImageViewModel.swift */; };
+		DDDCBF632B48864A002FDDC5 /* ProcessedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF622B48864A002FDDC5 /* ProcessedImageView.swift */; };
+		DDDCBF662B4886ED002FDDC5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF652B4886ED002FDDC5 /* ImageUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +24,10 @@
 		DDDCBF512B487A3F002FDDC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDDCBF542B487A3F002FDDC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDDCBF562B487A3F002FDDC5 /* KMeansDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KMeansDemo.entitlements; sourceTree = "<group>"; };
-		DDDCBF5E2B487BF5002FDDC5 /* OriginalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalImageView.swift; sourceTree = "<group>"; };
+		DDDCBF5E2B487BF5002FDDC5 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		DDDCBF602B48834E002FDDC5 /* InputImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputImageViewModel.swift; sourceTree = "<group>"; };
+		DDDCBF622B48864A002FDDC5 /* ProcessedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessedImageView.swift; sourceTree = "<group>"; };
+		DDDCBF652B4886ED002FDDC5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		DDDCBF4C2B487A3E002FDDC5 /* KMeansDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DDDCBF642B4886D2002FDDC5 /* Utils */,
 				DDDCBF5D2B487BE1002FDDC5 /* Views */,
 				DDDCBF5C2B487BCD002FDDC5 /* Models */,
 				DDDCBF4D2B487A3E002FDDC5 /* KMeansDemoApp.swift */,
@@ -76,6 +83,7 @@
 		DDDCBF5C2B487BCD002FDDC5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DDDCBF602B48834E002FDDC5 /* InputImageViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -83,9 +91,18 @@
 		DDDCBF5D2B487BE1002FDDC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DDDCBF5E2B487BF5002FDDC5 /* OriginalImageView.swift */,
+				DDDCBF5E2B487BF5002FDDC5 /* PreviewView.swift */,
+				DDDCBF622B48864A002FDDC5 /* ProcessedImageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DDDCBF642B4886D2002FDDC5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DDDCBF652B4886ED002FDDC5 /* ImageUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +177,10 @@
 			files = (
 				DDDCBF502B487A3E002FDDC5 /* ContentView.swift in Sources */,
 				DDDCBF4E2B487A3E002FDDC5 /* KMeansDemoApp.swift in Sources */,
-				DDDCBF5F2B487BF5002FDDC5 /* OriginalImageView.swift in Sources */,
+				DDDCBF632B48864A002FDDC5 /* ProcessedImageView.swift in Sources */,
+				DDDCBF5F2B487BF5002FDDC5 /* PreviewView.swift in Sources */,
+				DDDCBF612B48834E002FDDC5 /* InputImageViewModel.swift in Sources */,
+				DDDCBF662B4886ED002FDDC5 /* ImageUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
