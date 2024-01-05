@@ -9,9 +9,9 @@ import SwiftUI
 import CoreImage
 
 struct ProcessedImageView: View {
-    let ciImage: CIImage?
+    @Environment(ImageProcessor.self) private var imageProcessor
     var body: some View {
-        if let image = ciImage?.asNSImage() {
+        if let image = imageProcessor.image {
             Image(nsImage: image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -20,5 +20,5 @@ struct ProcessedImageView: View {
 }
 
 #Preview {
-    ProcessedImageView(ciImage: nil)
+    ProcessedImageView()
 }

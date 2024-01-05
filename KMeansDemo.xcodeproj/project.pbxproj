@@ -15,6 +15,7 @@
 		DDDCBF612B48834E002FDDC5 /* InputImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF602B48834E002FDDC5 /* InputImageViewModel.swift */; };
 		DDDCBF632B48864A002FDDC5 /* ProcessedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF622B48864A002FDDC5 /* ProcessedImageView.swift */; };
 		DDDCBF662B4886ED002FDDC5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF652B4886ED002FDDC5 /* ImageUtils.swift */; };
+		DDDCBF682B4889EA002FDDC5 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCBF672B4889EA002FDDC5 /* ImageProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DDDCBF602B48834E002FDDC5 /* InputImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputImageViewModel.swift; sourceTree = "<group>"; };
 		DDDCBF622B48864A002FDDC5 /* ProcessedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessedImageView.swift; sourceTree = "<group>"; };
 		DDDCBF652B4886ED002FDDC5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		DDDCBF672B4889EA002FDDC5 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				DDDCBF602B48834E002FDDC5 /* InputImageViewModel.swift */,
+				DDDCBF672B4889EA002FDDC5 /* ImageProcessor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				DDDCBF4E2B487A3E002FDDC5 /* KMeansDemoApp.swift in Sources */,
 				DDDCBF632B48864A002FDDC5 /* ProcessedImageView.swift in Sources */,
 				DDDCBF5F2B487BF5002FDDC5 /* PreviewView.swift in Sources */,
+				DDDCBF682B4889EA002FDDC5 /* ImageProcessor.swift in Sources */,
 				DDDCBF612B48834E002FDDC5 /* InputImageViewModel.swift in Sources */,
 				DDDCBF662B4886ED002FDDC5 /* ImageUtils.swift in Sources */,
 			);

@@ -7,18 +7,17 @@
 
 import SwiftUI
 
-class InputImageViewModel: ObservableObject, DropDelegate {
+@Observable class InputImageViewModel: DropDelegate {
     private var data: Data? {
         didSet {
             guard let data else { return }
+            image = NSImage(data: data)
             ciImage = CIImage(data: data)
         }
     }
 
-    var image: NSImage? {
-        ciImage?.asNSImage()
-    }
-    @Published var ciImage: CIImage?
+    var image: NSImage?
+    var ciImage: CIImage?
 
     func performDrop(info: DropInfo) -> Bool {
         // Check if there are items conforming to the specified types

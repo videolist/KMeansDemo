@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PreviewView: View {
-    @StateObject var viewModel = InputImageViewModel()
+    @Environment(ImageProcessor.self) private var imageProcessor
+    @State var viewModel = InputImageViewModel()
 
     var body: some View {
         VStack {
@@ -18,9 +19,7 @@ struct PreviewView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
 
-                    if let ciImage = viewModel.ciImage {
-                        ProcessedImageView(ciImage: ciImage)
-                    }
+                        ProcessedImageView()
                 }
             } else {
                 Text("Drag and drop an image here.")
@@ -31,6 +30,11 @@ struct PreviewView: View {
             }
         }  
         .onDrop(of: [.image], delegate: viewModel)
+        .onChange(of: viewModel.ciImage) { _, newValue in
+            if let newValue {
+                imageProcessor.setInputImage(newValue)
+            }
+        }
     }
 }
 

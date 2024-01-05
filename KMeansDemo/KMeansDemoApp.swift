@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct KMeansDemoApp: App {
+    @State var imageProcessor = ImageProcessor()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(imageProcessor)
         }
     }
 }
