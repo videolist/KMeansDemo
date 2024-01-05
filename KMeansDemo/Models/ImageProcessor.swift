@@ -19,7 +19,22 @@ import CoreImage
     }
 
     func processImage() {
-        guard let ciImage else { return }
-        image = ciImage.asNSImage()
+        guard let ciImage else {
+            return
+        }
+
+        let outputImage = ciImage.applyingFilter("CIKMeans", parameters: [
+            kCIInputExtentKey: CIVector(cgRect: ciImage.extent)
+        ])
+        image = outputImage.settingAlphaOne(in: outputImage.extent)
+            // Disable interpolation so that it maintaines clear separation between colors
+            .samplingNearest()
+            // Blow up each pixel 50x
+            .scaledUniform(50)
+            // Make it vertical
+            .rotated(.pi / 2)
+            // Prerender so CPU it doesn't run teh filter every time the window resizes to improve resizing performance
+            .rendered()?
+            .asNSImage()
     }
 }

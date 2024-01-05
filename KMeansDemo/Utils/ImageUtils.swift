@@ -15,4 +15,23 @@ extension CIImage {
         updateImage.addRepresentation(rep)
         return updateImage
     }
+
+    func scaled(x: CGFloat, y: CGFloat) -> CIImage {
+        transformed(by: CGAffineTransform(scaleX: x, y: y))
+    }
+
+    func scaledUniform(_ scale: CGFloat) -> CIImage {
+        scaled(x: scale, y: scale)
+    }
+
+    func rotated(_ angle: CGFloat) -> CIImage {
+        transformed(by: CGAffineTransform(rotationAngle: angle))
+    }
+
+    func rendered() -> CIImage? {
+        guard let data = CIContext().pngRepresentation(of: self, format: .RGBA8, colorSpace: CGColorSpaceCreateDeviceRGB()) else {
+            return nil
+        }
+        return CIImage(data: data)
+    }
 }
