@@ -33,7 +33,7 @@ import CoreImage
             .scaledUniform(50)
             // Make it vertical
             .rotated(.pi / 2)
-            // Prerender so CPU it doesn't run teh filter every time the window resizes to improve resizing performance
+            // Prerender so CPU it doesn't run the filter every time the window resizes to improve resizing performance
             .rendered()?
             .asNSImage()
     }
