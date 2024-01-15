@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PreviewView: View {
+struct ContentView: View {
     @Environment(ImageProcessor.self) private var imageProcessor
     @State var viewModel = InputImageViewModel()
 
@@ -39,5 +39,6 @@ struct PreviewView: View {
 }
 
 #Preview {
-    PreviewView()
+    ContentView()
+        .environment(ImageProcessor())
 }

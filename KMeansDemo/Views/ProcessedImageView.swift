@@ -21,4 +21,5 @@ struct ProcessedImageView: View {
 
 #Preview {
     ProcessedImageView()
+        .environment(ImageProcessor())
 }
