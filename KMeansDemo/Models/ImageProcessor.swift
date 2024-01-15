@@ -8,14 +8,15 @@
 import SwiftUI
 import CoreImage
 
-@Observable class ImageProcessor {
-    var image: NSImage?
+@Observable 
+class ImageProcessor {
+    var outputImage: NSImage?
 
     func processImage( _ ciImage: CIImage) {
         let outputImage = ciImage.applyingFilter("CIKMeans", parameters: [
             kCIInputExtentKey: CIVector(cgRect: ciImage.extent)
         ])
-        image = outputImage.settingAlphaOne(in: outputImage.extent)
+        self.outputImage = outputImage.settingAlphaOne(in: outputImage.extent)
             // Disable interpolation so that it maintaines clear separation between colors
             .samplingNearest()
             // Blow up each pixel 50x

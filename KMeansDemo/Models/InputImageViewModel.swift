@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-@Observable class InputImageViewModel: DropDelegate {
+@Observable 
+class InputImageViewModel: DropDelegate {
     var image: NSImage?
     var ciImage: CIImage?
 
@@ -23,7 +24,8 @@ import SwiftUI
             if let data {
                 DispatchQueue.main.async {
                     self.image = NSImage(data: data)
-                    self.ciImage = CIImage(data: data)
+                    self.ciImage = CIImage(data: data, 
+                                           options: [.applyOrientationProperty: true])
                 }
             }
         }

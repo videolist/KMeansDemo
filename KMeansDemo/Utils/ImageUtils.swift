@@ -29,9 +29,11 @@ extension CIImage {
     }
 
     func rendered() -> CIImage? {
-        guard let data = CIContext().pngRepresentation(of: self, format: .RGBA8, colorSpace: CGColorSpaceCreateDeviceRGB()) else {
-            return nil
-        }
+        guard let data = CIContext().pngRepresentation(
+            of: self,
+            format: .RGBA8,
+            colorSpace: CGColorSpaceCreateDeviceRGB()
+        ) else { return nil }
         return CIImage(data: data)
     }
 }

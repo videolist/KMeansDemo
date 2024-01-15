@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(ImageProcessor.self) private var imageProcessor
-    @State var viewModel = InputImageViewModel()
+    @State private var imageProcessor = ImageProcessor()
+    @State private var viewModel = InputImageViewModel()
 
     var body: some View {
         VStack {
@@ -18,8 +18,11 @@ struct ContentView: View {
                     Image(nsImage: image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-
-                        ProcessedImageView()
+                    if let outputImage = imageProcessor.outputImage {
+                        Image(nsImage: outputImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
                 }
             } else {
                 Text("Drag and drop an image here.")
@@ -39,5 +42,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environment(ImageProcessor())
 }

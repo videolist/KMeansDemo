@@ -13,7 +13,6 @@ struct KMeansDemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(imageProcessor)
         }
     }
 }
