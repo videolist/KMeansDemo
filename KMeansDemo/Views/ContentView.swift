@@ -2,7 +2,7 @@
 //  OriginalImageView.swift
 //  KMeansDemo
 //
-//  Created by Vadim on 1/5/24.
+//  Created by Vadim Dagman on 1/5/24.
 //
 
 import SwiftUI
@@ -24,7 +24,6 @@ struct ContentView: View {
             } else {
                 Text("Drag and drop an image here.")
                     .font(.headline)
-                    .padding()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.gray.opacity(0.3))
             }
@@ -32,7 +31,7 @@ struct ContentView: View {
         .onDrop(of: [.image], delegate: viewModel)
         .onChange(of: viewModel.ciImage) { _, newValue in
             if let newValue {
-                imageProcessor.setInputImage(newValue)
+                imageProcessor.processImage(newValue)
             }
         }
     }

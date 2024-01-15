@@ -2,20 +2,12 @@
 //  InputImageViewModel.swift
 //  KMeansDemo
 //
-//  Created by Vadim on 1/5/24.
+//  Created by Vadim Dagman on 1/5/24.
 //
 
 import SwiftUI
 
 @Observable class InputImageViewModel: DropDelegate {
-    private var data: Data? {
-        didSet {
-            guard let data else { return }
-            image = NSImage(data: data)
-            ciImage = CIImage(data: data)
-        }
-    }
-
     var image: NSImage?
     var ciImage: CIImage?
 
@@ -30,7 +22,8 @@ import SwiftUI
 
             if let data {
                 DispatchQueue.main.async {
-                    self.data = data
+                    self.image = NSImage(data: data)
+                    self.ciImage = CIImage(data: data)
                 }
             }
         }

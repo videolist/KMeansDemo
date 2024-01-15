@@ -2,7 +2,7 @@
 //  ProcessedImageView.swift
 //  KMeansDemo
 //
-//  Created by Vadim on 1/5/24.
+//  Created by Vadim Dagman on 1/5/24.
 //
 
 import SwiftUI
