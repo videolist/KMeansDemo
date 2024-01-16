@@ -22,14 +22,13 @@ class ImageProcessor {
 
     func processImage() {
         guard let inputImage else { return }
+        isWorking = true
         Task {
             await processImageAsync(inputImage)
         }
     }
 
     private func processImageAsync(_ image: CIImage) async {
-        isWorking = true
-
         let outputImage = image.applyingFilter("CIKMeans", parameters: [
             kCIInputExtentKey: CIVector(cgRect: image.extent),
             "inputCount": count
