@@ -24,6 +24,11 @@ struct ContentView: View {
                             .aspectRatio(contentMode: .fit)
                     }
                 }
+                .overlay {
+                    if imageProcessor.isWorking {
+                        ProcessingView()
+                    }
+                }
             } else {
                 Text("Drag and drop an image here.")
                     .font(.headline)

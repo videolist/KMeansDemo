@@ -18,24 +18,35 @@ class ImageProcessor {
     }
     var count = 8
     let countRange = 0...128
+    var isWorking = false
 
     func processImage() {
         guard let inputImage else { return }
-        let outputImage = inputImage.applyingFilter("CIKMeans", parameters: [
-            kCIInputExtentKey: CIVector(cgRect: inputImage.extent),
+        Task {
+            await processImageAsync(inputImage)
+        }
+    }
+
+    private func processImageAsync(_ image: CIImage) async {
+        isWorking = true
+
+        let outputImage = image.applyingFilter("CIKMeans", parameters: [
+            kCIInputExtentKey: CIVector(cgRect: image.extent),
             "inputCount": count
         ])
         self.outputImage = outputImage
             .settingAlphaOne(in: outputImage.extent)
             .foldOnePixelHighImage()
-            // Disable interpolation so that it maintains clear separation between colors
+        // Disable interpolation so that it maintains clear separation between colors
             .samplingNearest()
-            // Blow up each pixel 50x
+        // Blow up each pixel 50x
             .scaledUniform(50)
-            // Make it vertical
+        // Make it vertical
             .rotated(-.pi / 2)
-            // Prerender so CPU it doesn't run the filter every time the window resizes to improve resizing performance
+        // Prerender so CPU it doesn't run the filter every time the window resizes to improve resizing performance
             .rendered()?
             .asNSImage()
+        
+        isWorking = false
     }
 }
