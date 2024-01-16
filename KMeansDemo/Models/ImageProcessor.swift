@@ -16,8 +16,8 @@ class ImageProcessor {
             processImage()
         }
     }
-    var count: Double = 8
-    let countRange: ClosedRange<Double> = 0...128
+    var count = 8
+    let countRange = 0...128
 
     func processImage() {
         guard let inputImage else { return }

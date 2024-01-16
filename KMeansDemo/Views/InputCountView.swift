@@ -10,13 +10,22 @@ import SwiftUI
 struct InputCountView: View {
     @Environment(ImageProcessor.self) private var imageProcessor
     private var range: ClosedRange<Double> {
-        imageProcessor.countRange
+        Double(imageProcessor.countRange.lowerBound)
+        ...
+        Double(imageProcessor.countRange.upperBound)
     }
     var body: some View {
         VStack {
             Text("\(Int(imageProcessor.count))")
 
-            Slider(value: Bindable(imageProcessor).count, in: range, step: 1) {
+            Slider(
+                value: Binding(
+                    get: { Double(imageProcessor.count) },
+                    set: { imageProcessor.count = Int($0) }
+                ),
+                in: range,
+                step: 1
+            ) {
                 Text("Input Count")
                     .font(.headline)
             } minimumValueLabel: {
