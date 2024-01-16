@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var imageProcessor = ImageProcessor()
+    @Environment(ImageProcessor.self) private var imageProcessor
     @State private var viewModel = InputImageViewModel()
 
     var body: some View {
@@ -30,16 +30,18 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.gray.opacity(0.3))
             }
-        }  
+
+            InputCountView()
+        }
+        .frame(maxWidth: 800)
         .onDrop(of: [.image], delegate: viewModel)
         .onChange(of: viewModel.ciImage) { _, newValue in
-            if let newValue {
-                imageProcessor.processImage(newValue)
-            }
+            imageProcessor.inputImage = newValue
         }
     }
 }
 
 #Preview {
     ContentView()
+        .environment(ImageProcessor())
 }
