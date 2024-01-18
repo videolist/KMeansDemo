@@ -45,6 +45,8 @@ extension CIImage {
         return shifted(by: .init(x: origin.x - extent.minX, y: origin.y - extent.minY))
     }
 
+    /// Wraps around a 1 pixel high image by breaking it down into stripes of the given size
+    /// and stacking them one under the other
     func foldOnePixelHighImage(strideLength: Int = 8) -> CIImage {
         guard extent.height == 1 else {
             return self
@@ -58,6 +60,22 @@ extension CIImage {
             guard length > 0 else { break }
             image = cropped(to: .init(x: position, y: 0, width: length, height: 1))
                 .moved(to: .init(x: 0, y: index))
+                .composited(over: image)
+        }
+
+        return image
+    }
+
+    /// Creates 1 pixel high image out of an array of colors
+    static func fromColors(_ colors: [NSColor]) -> CIImage {
+        let pixels = colors
+            .compactMap { CIColor(color: $0) }
+            .map { CIImage(color: $0) }
+            .map { $0.cropped(to: CGRect(x: 0, y: 0, width: 1, height: 1)) }
+
+        var image = CIImage()
+        for (index, pixel) in pixels.enumerated() {
+            image = pixel.moved(to: .init(x: index, y: 0))
                 .composited(over: image)
         }
 

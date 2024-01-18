@@ -36,7 +36,11 @@ struct ContentView: View {
                     .background(Color.gray.opacity(0.3))
             }
 
-            InputCountView()
+            VStack(alignment: .leading) {
+                InputCountView()
+                InputMeansView()
+            }
+
         }
         .frame(maxWidth: 800)
         .onDrop(of: [.image], delegate: viewModel)
