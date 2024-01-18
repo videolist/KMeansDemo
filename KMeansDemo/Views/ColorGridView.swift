@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ColorGridView: View {
-    let colors: [NSColor]
+    @State var colors: [NSColor]
     private let columns = Array(repeating: GridItem(.fixed(50)), count: 10)
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(colors, id: \.self) { color in
-                ColorSeedView(color: color)
+                ColorSeedView(color: color) {
+                    withAnimation(.easeOut(duration: 0.2)) {
+                        deleteColor(color)
+                    }
+                }
             }
         }
+    }
+}
+
+private extension ColorGridView {
+    func deleteColor(_ color: NSColor) {
+        colors = colors.filter { !($0 === color) }
     }
 }
 

@@ -8,22 +8,35 @@
 import SwiftUI
 
 struct ColorSeedView: View {
+    @State var isHovering = false
     let color: NSColor
+    let didTapDelete: () -> Void
+
     var body: some View {
         Rectangle()
             .fill(Color(nsColor: color))
             .aspectRatio(1, contentMode: .fit)
             .overlay {
-                Image(systemName: "minus.circle.fill")
-                // This will push it to the top right corner
+                if isHovering {
+                    Button {
+                        didTapDelete()
+                    } label: {
+                        Image(systemName: "minus.circle.fill")
+                    }
+                    .buttonStyle(.plain)
+                    // This will push it to the top right corner
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                }
+            }
+            .onHover { over in
+                isHovering = over
             }
     }
 }
 
 #Preview {
     ZStack {
-        ColorSeedView(color: .red)
+        ColorSeedView(color: .red) {}
             .frame(height: 50)
             .padding()
     }
