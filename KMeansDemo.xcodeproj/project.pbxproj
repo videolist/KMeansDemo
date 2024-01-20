@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD9E08462B56D9EB00DD6469 /* InputCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E08452B56D9EB00DD6469 /* InputCountView.swift */; };
 		DDB4067C2B571BDE00A4D7D6 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4067B2B571BDE00A4D7D6 /* ProcessingView.swift */; };
+		DDC5B2362B5C1C9C004F9B76 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5B2352B5C1C9C004F9B76 /* ColorPickerView.swift */; };
 		DDCE8A312B582C4D00E16E98 /* ColorGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE8A302B582C4D00E16E98 /* ColorGridView.swift */; };
 		DDCE8A352B58314A00E16E98 /* InputMeansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE8A342B58314A00E16E98 /* InputMeansView.swift */; };
 		DDCE8A372B5982B700E16E98 /* ColorSeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE8A362B5982B700E16E98 /* ColorSeedView.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		DD9E08452B56D9EB00DD6469 /* InputCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCountView.swift; sourceTree = "<group>"; };
 		DDB4067B2B571BDE00A4D7D6 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		DDC5B2352B5C1C9C004F9B76 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		DDCE8A302B582C4D00E16E98 /* ColorGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGridView.swift; sourceTree = "<group>"; };
 		DDCE8A342B58314A00E16E98 /* InputMeansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMeansView.swift; sourceTree = "<group>"; };
 		DDCE8A362B5982B700E16E98 /* ColorSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSeedView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				DDCE8A302B582C4D00E16E98 /* ColorGridView.swift */,
 				DDCE8A362B5982B700E16E98 /* ColorSeedView.swift */,
 				DDCE8A342B58314A00E16E98 /* InputMeansView.swift */,
+				DDC5B2352B5C1C9C004F9B76 /* ColorPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				DD9E08462B56D9EB00DD6469 /* InputCountView.swift in Sources */,
 				DDDCBF682B4889EA002FDDC5 /* ImageProcessor.swift in Sources */,
 				DDB4067C2B571BDE00A4D7D6 /* ProcessingView.swift in Sources */,
+				DDC5B2362B5C1C9C004F9B76 /* ColorPickerView.swift in Sources */,
 				DDDCBF612B48834E002FDDC5 /* InputImageViewModel.swift in Sources */,
 				DDCE8A312B582C4D00E16E98 /* ColorGridView.swift in Sources */,
 				DDDCBF662B4886ED002FDDC5 /* ImageUtils.swift in Sources */,

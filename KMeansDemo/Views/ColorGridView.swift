@@ -12,8 +12,8 @@ struct ColorGridView: View {
     private let columns = Array(repeating: GridItem(.fixed(50)), count: 10)
     var body: some View {
         LazyVGrid(columns: columns) {
-            ForEach(colors, id: \.self) { color in
-                ColorSeedView(color: color) {
+            ForEach($colors, id: \.self) { $color in
+                ColorSeedView(color: $color) {
                     withAnimation(.easeOut(duration: 0.2)) {
                         deleteColor(color)
                     }
