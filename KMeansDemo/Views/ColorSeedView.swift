@@ -11,7 +11,6 @@ struct ColorSeedView: View {
     @State var isHovering = false
     @Binding var color: NSColor
     let didTapDelete: () -> Void
-    @State private var isFocused = false
 
     var body: some View {
         Color(nsColor: color)
@@ -23,7 +22,7 @@ struct ColorSeedView: View {
                         set: { color = NSColor($0) }
                     ))
                     .labelsHidden()
-                    
+
                     if isHovering {
                         Button {
                             didTapDelete()
@@ -32,15 +31,16 @@ struct ColorSeedView: View {
                         }
                         .buttonStyle(.plain)
                         // This will push it to the top right corner
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                        .frame(
+                            maxWidth: .infinity,
+                            maxHeight: .infinity,
+                            alignment: .topTrailing
+                        )
                     }
                 }
             }
             .onHover { over in
                 isHovering = over
-            }
-            .onChange(of: color) { _, _ in
-                isFocused = true
             }
     }
 }
