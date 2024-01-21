@@ -10,8 +10,13 @@ import SwiftUI
 struct InputMeansView: View {
     var body: some View {
         HStack(alignment: .top) {
-            Text("Input Means")
-                .font(.headline)
+            VStack(alignment: .leading) {
+                Text("Input Means")
+                    .font(.headline)
+                Button("Apply") {
+                }
+            }
+
             ColorGridView(colors: NSColor.randomColors(count: 15))
         }
         .padding()
