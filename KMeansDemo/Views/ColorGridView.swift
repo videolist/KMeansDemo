@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ColorGridView: View {
-    @State var colors: [NSColor]
+    @State var viewModel: InputMeansViewModel
     private let columns = Array(repeating: GridItem(.fixed(50)), count: 10)
     var body: some View {
         LazyVGrid(columns: columns) {
-            ForEach($colors) { $color in
+            ForEach($viewModel.colors) { $color in
                 ColorSeedView(color: $color) {
                     withAnimation(.easeOut(duration: 0.2)) {
-                        deleteColor(color)
+                        viewModel.deleteColor(color)
                     }
                 }
             }
@@ -23,33 +23,6 @@ struct ColorGridView: View {
     }
 }
 
-private extension ColorGridView {
-    func deleteColor(_ color: NSColor) {
-        colors = colors.filter { $0.id != color.id }
-    }
-}
-
 #Preview {
-    ColorGridView(colors: NSColor.randomColors(count: 15))
-}
-
-extension NSColor: Identifiable {
-    public var id: ObjectIdentifier {
-        ObjectIdentifier(self)
-    }
-}
-
-extension NSColor {
-    static var random: NSColor {
-        NSColor(
-            red: .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue: .random(in: 0...1),
-            alpha: 1
-        )
-    }
-
-    static func randomColors(count: Int) -> [NSColor] {
-        (0..<count).map { _ in NSColor.random }
-    }
+    ColorGridView(viewModel: .init())
 }

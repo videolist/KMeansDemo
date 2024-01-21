@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InputMeansView: View {
+    let viewModel = InputMeansViewModel()
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
@@ -17,7 +18,7 @@ struct InputMeansView: View {
                 }
             }
 
-            ColorGridView(colors: NSColor.randomColors(count: 15))
+            ColorGridView(viewModel: viewModel)
         }
         .padding()
     }
