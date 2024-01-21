@@ -11,6 +11,7 @@
 		DDB4067C2B571BDE00A4D7D6 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4067B2B571BDE00A4D7D6 /* ProcessingView.swift */; };
 		DDC5B2382B5CB02E004F9B76 /* InputMeansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5B2372B5CB02E004F9B76 /* InputMeansViewModel.swift */; };
 		DDC5B23A2B5D577A004F9B76 /* NSColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5B2392B5D577A004F9B76 /* NSColorExtensions.swift */; };
+		DDC5B23E2B5DA3AF004F9B76 /* ColorSeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5B23D2B5DA3AF004F9B76 /* ColorSeedViewModel.swift */; };
 		DDCE8A312B582C4D00E16E98 /* ColorGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE8A302B582C4D00E16E98 /* ColorGridView.swift */; };
 		DDCE8A352B58314A00E16E98 /* InputMeansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE8A342B58314A00E16E98 /* InputMeansView.swift */; };
 		DDCE8A372B5982B700E16E98 /* ColorSeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE8A362B5982B700E16E98 /* ColorSeedView.swift */; };
@@ -28,6 +29,7 @@
 		DDB4067B2B571BDE00A4D7D6 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		DDC5B2372B5CB02E004F9B76 /* InputMeansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMeansViewModel.swift; sourceTree = "<group>"; };
 		DDC5B2392B5D577A004F9B76 /* NSColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtensions.swift; sourceTree = "<group>"; };
+		DDC5B23D2B5DA3AF004F9B76 /* ColorSeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSeedViewModel.swift; sourceTree = "<group>"; };
 		DDCE8A302B582C4D00E16E98 /* ColorGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGridView.swift; sourceTree = "<group>"; };
 		DDCE8A342B58314A00E16E98 /* InputMeansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMeansView.swift; sourceTree = "<group>"; };
 		DDCE8A362B5982B700E16E98 /* ColorSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSeedView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				DDDCBF602B48834E002FDDC5 /* InputImageViewModel.swift */,
 				DDDCBF672B4889EA002FDDC5 /* ImageProcessor.swift */,
 				DDC5B2372B5CB02E004F9B76 /* InputMeansViewModel.swift */,
+				DDC5B23D2B5DA3AF004F9B76 /* ColorSeedViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				DDC5B2382B5CB02E004F9B76 /* InputMeansViewModel.swift in Sources */,
 				DD9E08462B56D9EB00DD6469 /* InputCountView.swift in Sources */,
 				DDDCBF682B4889EA002FDDC5 /* ImageProcessor.swift in Sources */,
+				DDC5B23E2B5DA3AF004F9B76 /* ColorSeedViewModel.swift in Sources */,
 				DDB4067C2B571BDE00A4D7D6 /* ProcessingView.swift in Sources */,
 				DDDCBF612B48834E002FDDC5 /* InputImageViewModel.swift in Sources */,
 				DDCE8A312B582C4D00E16E98 /* ColorGridView.swift in Sources */,
