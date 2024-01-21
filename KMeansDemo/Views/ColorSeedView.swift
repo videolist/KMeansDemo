@@ -5,6 +5,7 @@
 //  Created by Vadim on 1/18/24.
 //
 
+import Combine
 import SwiftUI
 
 struct ColorSeedView: View {
@@ -12,11 +13,21 @@ struct ColorSeedView: View {
     let didTapDelete: () -> Void
     @State private var isHovering = false
     @State private var localColor: Color
+    private var cancellable: AnyCancellable?
 
-    init(color: Binding<NSColor>, didTapDelete: @escaping () -> Void) {
+    init(
+        color: Binding<NSColor>,
+        applyChange: AnyPublisher<Void, Never>,
+        didTapDelete: @escaping () -> Void
+    ) {
         _color = color
         self.didTapDelete = didTapDelete
         localColor = Color(nsColor: color.wrappedValue)
+
+        cancellable = applyChange
+            .sink { [self] in
+                self.color = NSColor(localColor)
+            }
     }
 
     var body: some View {
@@ -50,7 +61,7 @@ struct ColorSeedView: View {
 }
 
 #Preview {
-    ColorSeedView(color: .constant(.red)) {}
+    ColorSeedView(color: .constant(.red), applyChange: Just<Void>(()).eraseToAnyPublisher()) {}
         .frame(height: 50)
         .padding()
 }

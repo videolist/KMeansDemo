@@ -13,7 +13,7 @@ struct ColorGridView: View {
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach($viewModel.colors) { $color in
-                ColorSeedView(color: $color) {
+                ColorSeedView(color: $color, applyChange: viewModel.applyChangeRequest) {
                     withAnimation(.easeOut(duration: 0.2)) {
                         viewModel.deleteColor(color)
                     }

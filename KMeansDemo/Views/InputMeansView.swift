@@ -15,6 +15,7 @@ struct InputMeansView: View {
                 Text("Input Means")
                     .font(.headline)
                 Button("Apply") {
+                    viewModel.applyChange()
                 }
             }
 
