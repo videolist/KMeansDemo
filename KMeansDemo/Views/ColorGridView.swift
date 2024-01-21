@@ -12,7 +12,7 @@ struct ColorGridView: View {
     private let columns = Array(repeating: GridItem(.fixed(50)), count: 10)
     var body: some View {
         LazyVGrid(columns: columns) {
-            ForEach($colors, id: \.self) { $color in
+            ForEach($colors) { $color in
                 ColorSeedView(color: $color) {
                     withAnimation(.easeOut(duration: 0.2)) {
                         deleteColor(color)
@@ -25,12 +25,18 @@ struct ColorGridView: View {
 
 private extension ColorGridView {
     func deleteColor(_ color: NSColor) {
-        colors = colors.filter { !($0 === color) }
+        colors = colors.filter { $0.id != color.id }
     }
 }
 
 #Preview {
     ColorGridView(colors: NSColor.randomColors(count: 15))
+}
+
+extension NSColor: Identifiable {
+    public var id: ObjectIdentifier {
+        ObjectIdentifier(self)
+    }
 }
 
 extension NSColor {

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ColorSeedView: View {
-    @State var isHovering = false
     @Binding var color: NSColor
     let didTapDelete: () -> Void
+    @State private var isHovering = false
 
     var body: some View {
         Color(nsColor: color)
