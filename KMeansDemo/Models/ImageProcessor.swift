@@ -29,11 +29,10 @@ class ImageProcessor {
     }
 
     private func processImageAsync(_ image: CIImage) async {
-//        let outputImage = image.applyingFilter("CIKMeans", parameters: [
-//            kCIInputExtentKey: CIVector(cgRect: image.extent),
-//            "inputCount": count
-//        ])
-        let outputImage = CIImage.fromColors([.red, .blue, .green])
+        let outputImage = image.applyingFilter("CIKMeans", parameters: [
+            kCIInputExtentKey: CIVector(cgRect: image.extent),
+            "inputCount": count
+        ])
         self.outputImage = outputImage
             .settingAlphaOne(in: outputImage.extent)
             .foldOnePixelHighImage()

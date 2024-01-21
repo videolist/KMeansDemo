@@ -11,16 +11,20 @@ struct ColorSeedView: View {
     @Binding var color: NSColor
     let didTapDelete: () -> Void
     @State private var isHovering = false
+    @State private var localColor: Color
+
+    init(color: Binding<NSColor>, didTapDelete: @escaping () -> Void) {
+        _color = color
+        self.didTapDelete = didTapDelete
+        localColor = Color(nsColor: color.wrappedValue)
+    }
 
     var body: some View {
-        Color(nsColor: color)
+        localColor
             .aspectRatio(1, contentMode: .fit)
             .overlay {
                 ZStack {
-                    ColorPicker("", selection: Binding(
-                        get: { Color(nsColor: color) },
-                        set: { color = NSColor($0) }
-                    ))
+                    ColorPicker("", selection: $localColor)
                     .labelsHidden()
 
                     if isHovering {
