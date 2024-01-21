@@ -10,17 +10,9 @@ import SwiftUI
 
 @Observable 
 class InputMeansViewModel {
-    var colors = NSColor.randomColors(count: 15)
-    var applyChangeRequest: AnyPublisher<Void, Never> {
-        applyChangeSubject.eraseToAnyPublisher()
-    }
-    private let applyChangeSubject = PassthroughSubject<Void, Never>()
+    var seedViewModels = (0..<15).map { _ in ColorSeedViewModel() }
 
-    func deleteColor(_ color: NSColor) {
-        colors = colors.filter { $0.id != color.id }
-    }
-
-    func applyChange() {
-        applyChangeSubject.send(())
+    func deleteColor(_ viewModel: ColorSeedViewModel) {
+        seedViewModels = seedViewModels.filter { $0.id != viewModel.id }
     }
 }

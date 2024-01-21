@@ -14,9 +14,6 @@ struct InputMeansView: View {
             VStack(alignment: .leading) {
                 Text("Input Means")
                     .font(.headline)
-                Button("Apply") {
-                    viewModel.applyChange()
-                }
             }
 
             ColorGridView(viewModel: viewModel)

@@ -9,25 +9,16 @@ import Combine
 import SwiftUI
 
 struct ColorSeedView: View {
+    @State var viewModel: ColorSeedViewModel
     let didTapDelete: () -> Void
     @State private var isHovering = false
-    @State private var viewModel: ColorSeedViewModel
-
-    init(
-        color: Binding<NSColor>,
-        applyChange: AnyPublisher<Void, Never>,
-        didTapDelete: @escaping () -> Void
-    ) {
-        self.didTapDelete = didTapDelete
-        viewModel = .init(color: color, applyChange: applyChange)
-    }
 
     var body: some View {
-        viewModel.localColor
+        viewModel.color
             .aspectRatio(1, contentMode: .fit)
             .overlay {
                 ZStack {
-                    ColorPicker("", selection: $viewModel.localColor)
+                    ColorPicker("", selection: $viewModel.color)
                     .labelsHidden()
 
                     if isHovering {
@@ -53,10 +44,7 @@ struct ColorSeedView: View {
 }
 
 #Preview {
-    ColorSeedView(
-        color: .constant(.red),
-        applyChange: Just<Void>(()).eraseToAnyPublisher()
-    ) {}
+    ColorSeedView(viewModel: .init()) {}
         .frame(height: 50)
         .padding()
 }
