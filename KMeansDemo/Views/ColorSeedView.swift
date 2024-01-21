@@ -9,10 +9,8 @@ import Combine
 import SwiftUI
 
 struct ColorSeedView: View {
-    @Binding var color: NSColor
     let didTapDelete: () -> Void
     @State private var isHovering = false
-    private var cancellable: AnyCancellable?
     @State private var viewModel: ColorSeedViewModel
 
     init(
@@ -20,15 +18,8 @@ struct ColorSeedView: View {
         applyChange: AnyPublisher<Void, Never>,
         didTapDelete: @escaping () -> Void
     ) {
-        _color = color
         self.didTapDelete = didTapDelete
-        viewModel = .init(color: Color(nsColor: color.wrappedValue))
-
-        cancellable = applyChange
-            .prefix(1)
-            .sink { [self] in
-                self.color = NSColor(viewModel.localColor)
-            }
+        viewModel = .init(color: color, applyChange: applyChange)
     }
 
     var body: some View {
@@ -62,7 +53,10 @@ struct ColorSeedView: View {
 }
 
 #Preview {
-    ColorSeedView(color: .constant(.red), applyChange: Just<Void>(()).eraseToAnyPublisher()) {}
+    ColorSeedView(
+        color: .constant(.red),
+        applyChange: Just<Void>(()).eraseToAnyPublisher()
+    ) {}
         .frame(height: 50)
         .padding()
 }
