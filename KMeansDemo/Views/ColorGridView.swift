@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ColorGridView: View {
-    @Bindable var viewModel: InputMeansViewModel
+    var viewModel: InputMeansViewModel
     private let columns = Array(repeating: GridItem(.fixed(50)), count: 10)
     var body: some View {
         LazyVGrid(columns: columns) {
