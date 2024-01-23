@@ -9,9 +9,13 @@ import SwiftUI
 
 @Observable 
 class InputMeansViewModel {
-    var seedViewModels = (0..<15).map { _ in ColorSeedViewModel() }
+    var seedViewModels = [ColorSeedViewModel]()
 
     func deleteColor(_ viewModel: ColorSeedViewModel) {
         seedViewModels = seedViewModels.filter { $0.id != viewModel.id }
+    }
+
+    func addColor(_ viewModel: ColorSeedViewModel) {
+        seedViewModels.append(viewModel)
     }
 }

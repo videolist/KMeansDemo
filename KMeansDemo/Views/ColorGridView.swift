@@ -19,6 +19,12 @@ struct ColorGridView: View {
                     }
                 }
             }
+
+            AddColorButton { color in
+                withAnimation(.easeOut(duration: 0.2)) {
+                    viewModel.addColor(color)
+                }
+            }
         }
     }
 }

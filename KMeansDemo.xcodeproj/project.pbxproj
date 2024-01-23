@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD104DED2B600227004C687F /* AddColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD104DEC2B600227004C687F /* AddColorButton.swift */; };
 		DD9E08462B56D9EB00DD6469 /* InputCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E08452B56D9EB00DD6469 /* InputCountView.swift */; };
 		DDB4067C2B571BDE00A4D7D6 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4067B2B571BDE00A4D7D6 /* ProcessingView.swift */; };
 		DDC5B2382B5CB02E004F9B76 /* InputMeansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5B2372B5CB02E004F9B76 /* InputMeansViewModel.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD104DEC2B600227004C687F /* AddColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddColorButton.swift; sourceTree = "<group>"; };
 		DD9E08452B56D9EB00DD6469 /* InputCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCountView.swift; sourceTree = "<group>"; };
 		DDB4067B2B571BDE00A4D7D6 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		DDC5B2372B5CB02E004F9B76 /* InputMeansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMeansViewModel.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				DDCE8A302B582C4D00E16E98 /* ColorGridView.swift */,
 				DDCE8A362B5982B700E16E98 /* ColorSeedView.swift */,
 				DDCE8A342B58314A00E16E98 /* InputMeansView.swift */,
+				DD104DEC2B600227004C687F /* AddColorButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				DDDCBF612B48834E002FDDC5 /* InputImageViewModel.swift in Sources */,
 				DDCE8A312B582C4D00E16E98 /* ColorGridView.swift in Sources */,
 				DDDCBF662B4886ED002FDDC5 /* ImageUtils.swift in Sources */,
+				DD104DED2B600227004C687F /* AddColorButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
