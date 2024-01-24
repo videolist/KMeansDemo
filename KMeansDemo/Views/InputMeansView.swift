@@ -19,9 +19,12 @@ struct InputMeansView: View {
                 Text("Input Means")
                     .font(.headline)
 
-                Button("Apply") {
-                    viewModel.apply()
+                if viewModel.hasChanged {
+                    Button("Apply") {
+                        viewModel.apply()
+                    }
                 }
+
             }
 
             ColorGridView(viewModel: viewModel)

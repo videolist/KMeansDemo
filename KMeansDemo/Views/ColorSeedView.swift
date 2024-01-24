@@ -10,6 +10,7 @@ import SwiftUI
 struct ColorSeedView: View {
     @State var viewModel: ColorSeedViewModel
     let didTapDelete: () -> Void
+    let didChangeColor: () -> Void
     @State private var isHovering = false
 
     var body: some View {
@@ -39,11 +40,14 @@ struct ColorSeedView: View {
             .onHover { over in
                 isHovering = over
             }
+            .onChange(of: viewModel.color) { _, _ in
+                didChangeColor()
+            }
     }
 }
 
 #Preview {
-    ColorSeedView(viewModel: .init(color: .red)) {}
+    ColorSeedView(viewModel: .init(color: .red)) {} didChangeColor: {}
         .frame(height: 50)
         .padding()
 }

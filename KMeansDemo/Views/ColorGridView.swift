@@ -17,6 +17,8 @@ struct ColorGridView: View {
                     withAnimation(.easeOut(duration: 0.2)) {
                         viewModel.deleteColor(seedViewModel)
                     }
+                } didChangeColor: {
+                    viewModel.hasChanged = true
                 }
             }
 
