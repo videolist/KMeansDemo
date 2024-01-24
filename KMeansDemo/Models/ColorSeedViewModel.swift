@@ -10,5 +10,13 @@ import SwiftUI
 @Observable
 class ColorSeedViewModel: Identifiable {
     let id = UUID().uuidString
-    var color: Color = Color(nsColor: .random)
+    var color: Color
+
+    init() {
+        color = Color(nsColor: .random)
+    }
+
+    init(color: NSColor) {
+        self.color = Color(nsColor: color)
+    }
 }

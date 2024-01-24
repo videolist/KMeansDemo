@@ -19,7 +19,18 @@ class ImageProcessor {
     var count = 8
     let countRange = 0...128
     var isWorking = false
-    var inputMeans: CIImage?
+    var inputMeans: [NSColor] = []
+
+    private func parameters(inputImage: CIImage) -> [String: Any] {
+        var parameters: [String: Any] = [
+            kCIInputExtentKey: CIVector(cgRect: inputImage.extent),
+            "inputCount": count
+        ]
+        if !inputMeans.isEmpty {
+            parameters["inputMeans"] = CIImage.fromColors(inputMeans)
+        }
+        return parameters
+    }
 
     func processImage() {
         guard let inputImage else { return }
@@ -27,17 +38,6 @@ class ImageProcessor {
         Task {
             await processImageAsync(inputImage)
         }
-    }
-
-    private func parameters(inputImage: CIImage) -> [String: Any] {
-        var parameters: [String: Any] = [
-            kCIInputExtentKey: CIVector(cgRect: inputImage.extent),
-            "inputCount": count
-        ]
-        if let inputMeans {
-            parameters["inputMeans"] = inputMeans
-        }
-        return parameters
     }
 
     private func processImageAsync(_ image: CIImage) async {

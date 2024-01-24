@@ -43,7 +43,7 @@ struct ColorSeedView: View {
 }
 
 #Preview {
-    ColorSeedView(viewModel: .init()) {}
+    ColorSeedView(viewModel: .init(color: .red)) {}
         .frame(height: 50)
         .padding()
 }

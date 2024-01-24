@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct InputMeansView: View {
-    @Environment(ImageProcessor.self) private var imageProcessor
-    let viewModel = InputMeansViewModel()
+    let viewModel: InputMeansViewModel
+    init(imageProcessor: ImageProcessor) {
+        viewModel = .init(imageProcessor: imageProcessor)
+    }
+
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
@@ -17,7 +20,7 @@ struct InputMeansView: View {
                     .font(.headline)
 
                 Button("Apply") {
-                    viewModel.apply(imageProcessor: imageProcessor)
+                    viewModel.apply()
                 }
             }
 
@@ -28,7 +31,6 @@ struct InputMeansView: View {
 }
 
 #Preview {
-    InputMeansView()
+    InputMeansView(imageProcessor: .init())
         .frame(width: 800)
-        .environment(ImageProcessor())
 }

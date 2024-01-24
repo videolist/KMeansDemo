@@ -38,7 +38,7 @@ struct ContentView: View {
 
             VStack(alignment: .leading) {
                 InputCountView()
-                InputMeansView()
+                InputMeansView(imageProcessor: imageProcessor)
             }
 
         }

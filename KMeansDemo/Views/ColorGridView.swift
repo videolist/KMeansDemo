@@ -30,5 +30,5 @@ struct ColorGridView: View {
 }
 
 #Preview {
-    ColorGridView(viewModel: .init())
+    ColorGridView(viewModel: .init(imageProcessor: .init()))
 }

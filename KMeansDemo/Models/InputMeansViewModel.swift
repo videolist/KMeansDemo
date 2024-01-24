@@ -9,7 +9,12 @@ import SwiftUI
 
 @Observable 
 class InputMeansViewModel {
-    var seedViewModels = [ColorSeedViewModel]()
+    let imageProcessor: ImageProcessor
+    var seedViewModels: [ColorSeedViewModel]
+    init(imageProcessor: ImageProcessor) {
+        self.imageProcessor = imageProcessor
+        seedViewModels = imageProcessor.inputMeans.map { .init(color: $0) }
+    }
 
     func deleteColor(_ viewModel: ColorSeedViewModel) {
         seedViewModels = seedViewModels.filter { $0.id != viewModel.id }
@@ -19,9 +24,9 @@ class InputMeansViewModel {
         seedViewModels.append(viewModel)
     }
 
-    func apply(imageProcessor: ImageProcessor) {
+    func apply() {
         let colors = seedViewModels.map(\.color).map { NSColor($0) }
-        imageProcessor.inputMeans = CIImage.fromColors(colors)
+        imageProcessor.inputMeans = colors
         imageProcessor.processImage()
     }
 }
