@@ -18,4 +18,10 @@ class InputMeansViewModel {
     func addColor(_ viewModel: ColorSeedViewModel) {
         seedViewModels.append(viewModel)
     }
+
+    func apply(imageProcessor: ImageProcessor) {
+        let colors = seedViewModels.map(\.color).map { NSColor($0) }
+        imageProcessor.inputMeans = CIImage.fromColors(colors)
+        imageProcessor.processImage()
+    }
 }

@@ -19,6 +19,7 @@ class ImageProcessor {
     var count = 8
     let countRange = 0...128
     var isWorking = false
+    var inputMeans: CIImage?
 
     func processImage() {
         guard let inputImage else { return }
@@ -28,11 +29,19 @@ class ImageProcessor {
         }
     }
 
-    private func processImageAsync(_ image: CIImage) async {
-        let outputImage = image.applyingFilter("CIKMeans", parameters: [
-            kCIInputExtentKey: CIVector(cgRect: image.extent),
+    private func parameters(inputImage: CIImage) -> [String: Any] {
+        var parameters: [String: Any] = [
+            kCIInputExtentKey: CIVector(cgRect: inputImage.extent),
             "inputCount": count
-        ])
+        ]
+        if let inputMeans {
+            parameters["inputMeans"] = inputMeans
+        }
+        return parameters
+    }
+
+    private func processImageAsync(_ image: CIImage) async {
+        let outputImage = image.applyingFilter("CIKMeans", parameters: parameters(inputImage: image))
         self.outputImage = outputImage
             .settingAlphaOne(in: outputImage.extent)
             .foldOnePixelHighImage()
